@@ -4,7 +4,6 @@ import VoicemailIcon from '@material-ui/icons/Voicemail';
 import PhoneIcon from '@material-ui/icons/Phone';
 
 const CallIcon = ({ callType }) => {
-    console.log(callType)
     switch(callType) {
         case 'missed':
             return <PhoneMissedIcon />

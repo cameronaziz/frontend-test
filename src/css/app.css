@@ -24,3 +24,21 @@
   flex: 1;
   padding: 20px;
 }
+
+.archive-all {
+  display: flex;
+  border: #A9A9A9 1px solid;
+  border-radius: 5px;
+  margin: 5px 20px;
+  padding: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.all-done {
+  border: #A9A9A9 1px solid;
+  border-radius: 5px;
+  margin: 5px 20px;
+  padding: 30px 5px;
+  text-align: center;
+}

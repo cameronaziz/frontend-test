@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import ArchiveIcon from '@material-ui/icons/Archive';
-import { archiveActivity } from '../util/activities';
 import CallIcon from './CallIcon.jsx';
 import '../css/callPreview.css'
 
@@ -12,7 +11,6 @@ class CallPreview extends Component {
             isHovered: false,
         }
         this.toggleHover = this.toggleHover.bind(this);
-        this.archiveActivity = this.archiveActivity.bind(this);
     }
 
     toggleHover() {
@@ -21,14 +19,8 @@ class CallPreview extends Component {
         })
     }
 
-    archiveActivity() {
-        const { id } = this.props.call;
-        archiveActivity(id);
-        this.props.archiveActivity(id);
-    }
-
     render() {
-        const { call } = this.props;
+        const { call, archiveActivity } = this.props;
         return (
             <div className="call-preview">
                 <div style={{ marginRight: '5px' }}>
@@ -46,7 +38,10 @@ class CallPreview extends Component {
                     {moment(call.created_at).format('hh:mm A')}
                 </div>
                 {!call.is_archived &&
-                    <ArchiveIcon className="archive-button" onClick={this.archiveActivity} />
+                    <ArchiveIcon
+                        className="archive-button"
+                        onClick={() => archiveActivity(call.id)}
+                    />
                 }
             </div>
         )
