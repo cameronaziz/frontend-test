@@ -47,7 +47,7 @@ class Feed extends Component {
         }
         if (this.props.currentCall) {
             const call = this.state.activities.find((call) => call.id = this.props.currentCall)
-            return <CallDetail call={call} archiveActivity={this.archiveActivity} />
+            return <CallDetail call={call} archiveActivity={this.archiveActivity} clearDetail={this.props.viewDetail} />
         }
         if (calls.length === 0) {
             return (

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import moment from 'moment';
 import ArchiveIcon from '@material-ui/icons/Archive';
+import BackIcon from '@material-ui/icons/ArrowLeft'
 import CallIcon from './CallIcon.jsx';
 import '../css/callPreview.css'
 
@@ -20,9 +21,14 @@ class CallDetail extends Component {
     }
 
     render() {
-        const { call, archiveActivity } = this.props;
+        const { call, archiveActivity, clearDetail } = this.props;
         return (
-            <div className="call-detail">
+            <Fragment>
+                <div className="back-button" onClick={() => clearDetail()}>
+                    <BackIcon />
+                    Back
+                </div>
+                <div className="call-detail">
                 <div style={{ marginRight: '5px' }}>
                     <CallIcon callType={call.call_type} />
                 </div>
@@ -53,6 +59,8 @@ class CallDetail extends Component {
                     <div>{moment(call.created_at).format('hh:mm A')}</div>
                 </div>
             </div>
+            </Fragment>
+            
         )
     }
 }
