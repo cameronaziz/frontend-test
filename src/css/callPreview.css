@@ -7,6 +7,28 @@
     padding: 5px;
 }
 
+.call-detail {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: #A9A9A9 1px solid;
+    border-radius: 5px;
+    margin: 5px 0px;
+    padding: 5px;
+}
+
+.call-detail div {
+    margin: 5px 0;
+}
+
+.call-detail .actions {
+    display: block;
+}
+
+.call-detail .actions .archive-button {
+    float: right;
+}
+
 .archive-button {
     background-color: unset;
     margin-left: 3px; 

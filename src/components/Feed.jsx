@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getActivities, groupByDate, archiveActivity } from '../util/activities'
 import CallPreview from './CallPreview.jsx';
+import CallDetail from './CallDetail.jsx';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 class Feed extends Component {
@@ -8,6 +9,7 @@ class Feed extends Component {
         super(props);
         this.state = {
             activities: [],
+            currentCall: undefined,
         }
         this.archiveActivity = this.archiveActivity.bind(this);
         this.archiveAll = this.archiveAll.bind(this);
@@ -43,6 +45,10 @@ class Feed extends Component {
         if (!this.props.allCalls) {
             calls = calls.filter(call => !call.is_archived);
         }
+        if (this.props.currentCall) {
+            const call = this.state.activities.find((call) => call.id = this.props.currentCall)
+            return <CallDetail call={call} archiveActivity={this.archiveActivity} />
+        }
         if (calls.length === 0) {
             return (
                 <div className="all-done">
@@ -61,7 +67,12 @@ class Feed extends Component {
                 {groupByDate(calls).map((date) => (
                     <div key={date.key} style={{ marginBottom: '15px'}}>
                         <div style={{ color: '#A0A0A0', textAlign: 'center'}}>{date.key}</div>
-                        {date.values.map((call) => <CallPreview key={call.id} call={call} archiveActivity={this.archiveActivity} />)}
+                        {date.values.map((call) => <CallPreview
+                                                        key={call.id}
+                                                        call={call}
+                                                        archiveActivity={this.archiveActivity}
+                                                        viewDetail={this.props.viewDetail}
+                                                    />)}
                     </div>
                 ))}
             </div>

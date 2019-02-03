@@ -20,9 +20,9 @@ class CallPreview extends Component {
     }
 
     render() {
-        const { call, archiveActivity } = this.props;
+        const { call, archiveActivity, viewDetail } = this.props;
         return (
-            <div className="call-preview">
+            <div className="call-preview" onClick={() => viewDetail(call.id)}>
                 <div style={{ marginRight: '5px' }}>
                     <CallIcon callType={call.call_type} />
                 </div>

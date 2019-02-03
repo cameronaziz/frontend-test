@@ -10,13 +10,22 @@ class App extends Component {
         super(props);
         this.state = {
             tab: 0,
+            currentCall: undefined,
         }
         this.setTab = this.setTab.bind(this);
+        this.viewDetail = this.viewDetail.bind(this);
     }
 
     setTab(event, tab) {
         this.setState({
             tab,
+            currentCall: undefined,
+        })
+    }
+
+    viewDetail(currentCall) {
+        this.setState({
+            currentCall,
         })
     }
 
@@ -25,7 +34,7 @@ class App extends Component {
             <div className="container">
                 <Header tab={this.state.tab} setTab={this.setTab} />
                 <div className="container-view">
-                    <Feed allCalls={this.state.tab} />
+                    <Feed allCalls={this.state.tab} viewDetail={this.viewDetail} currentCall={this.state.currentCall} />
                 </div>
                 <Footer />
             </div>
