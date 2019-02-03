@@ -12,12 +12,16 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.1",
+    "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "moment": "^2.24.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },
   "devDependencies": {
     "babel-core": "6.26.*",
-    "babel-loader": "8.0.*",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "1.7.0",
     "babel-preset-react": "6.24.*",
     "css-loader": "2.1.*",

@@ -1,0 +1,19 @@
+.call-preview {
+    display: flex;
+    width: 100%;
+    border: #A9A9A9 1px solid;
+    border-radius: 5px;
+    margin: 5px 0px;
+    padding: 5px;
+}
+
+.archive-button {
+    background-color: unset;
+    margin-left: 3px; 
+}
+
+/* .archive-button:hover {
+    background-color: #ff0000;
+    transition: background-color 2s;
+    transition-timing-function: ease-in;
+} */

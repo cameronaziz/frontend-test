@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import Header from './Header.jsx';
+import Header from './components/Header.jsx';
+import Feed from './components/Feed.jsx';
+import Footer from './components/Footer.jsx';
 
-const App = () => {
-  return (
-    <div className='container'>
-      <Header/>
-      <div className="container-view">Some activities should be here</div>
-    </div>
-  );
-};
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            tab: 0,
+        }
+        this.setTab = this.setTab.bind(this);
+    }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+    setTab(event, tab) {
+        this.setState({
+            tab,
+        })
+    }
+
+    render() {
+        return (
+            <div className="container">
+                <Header tab={this.state.tab} setTab={this.setTab} />
+                <div className="container-view">
+                    <Feed allCalls={this.state.tab} />
+                </div>
+                <Footer />
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));
 
 export default App;
